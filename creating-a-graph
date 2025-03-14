@@ -1,0 +1,20 @@
+clc
+clear all
+close all
+
+t = linspace(0,10,10000);
+% de zero a 10 com dez mil pontos
+
+w = 10;
+v = exp(1j*w*t)+exp(-1j*w*t);
+i = abs(1.5*cos(2*w*t-35*pi/180));
+
+fig = figure(1);
+set(fig,'Position', [170 300 850 350]) % pos [x y largura altura]
+hc = plot(t,v,'r-',t,i,'b-', 'linewidth',2);
+set(gca,'YLim',[-2.1 2.1], 'XLim',[0 pi/5])
+set(fig,'Color','w')
+legend('Tensão','Corrente','Location','SouthEast')
+grid on
+set(hc(2),'linewidth',4,'LineStyle','-.')
+      
